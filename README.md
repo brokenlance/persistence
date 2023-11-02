@@ -43,30 +43,11 @@ In this case, the "mongo" detector should match and create its datatype:
                             ^               ^                      
                 implements  |               |  implements         
                             |               |                    
-+----------------------------------+   +-------------------------------+    
-|                                  |   |                               |    
-|  DefaultPersistenceManager< T >  |   | MongoPersistenceManager< T >  |...
-|                                  |   |                               |   
-+----------------------------------+   +-------------------------------+   
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
+ +----------------------------------+   +-------------------------------+    
+ |                                  |   |                               |    
+ |  DefaultPersistenceManager< T >  |   | MongoPersistenceManager< T >  |...
+ |                                  |   |                               |   
+ +----------------------------------+   +-------------------------------+   
                                                                                                                                  
                                                                                                                                  
                                                                                                                                  
