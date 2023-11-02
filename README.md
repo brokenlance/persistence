@@ -32,22 +32,24 @@ In this case, the "mongo" detector should match and create its datatype:
 ```
 
 ### Class Hierarchy:
-                    +--------------------------------+                     
-                    |                                |                    
-                    |    PersistenceManager< T >     |                   
-                    |--------------------------------|                  
-                    | + serialize( T )               |                 
-                    | + T: deserialize()             |                
-                    |                                |               
-                    +--------------------------------+              
-                            ^               ^                      
-                implements  |               |  implements         
-                            |               |                    
- +----------------------------------+   +-------------------------------+    
- |                                  |   |                               |    
- |  DefaultPersistenceManager< T >  |   | MongoPersistenceManager< T >  |...
- |                                  |   |                               |   
- +----------------------------------+   +-------------------------------+   
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
+The following diagram exhibts the class structure/design:
+
+                           +--------------------------------+                     
+                           |                                |                    
+                           |    PersistenceManager< T >     |                   
+                           |--------------------------------|                  
+                           | + serialize( T )               |                 
+                           | + T: deserialize()             |                
+                           |                                |               
+                           +--------------------------------+              
+                                   ^               ^                      
+                       implements  |               |  implements         
+                                   |               |                    
+        +----------------------------------+   +-------------------------------+    
+        |                                  |   |                               |    
+        |  DefaultPersistenceManager< T >  |   | MongoPersistenceManager< T >  |...
+        |                                  |   |                               |   
+        +----------------------------------+   +-------------------------------+   
+                                                                                                                                        
+                                                                                                                                        
+                                                                                                                                        
