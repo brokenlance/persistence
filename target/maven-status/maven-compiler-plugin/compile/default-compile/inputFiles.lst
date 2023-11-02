@@ -1,0 +1,6 @@
+/home/lonewolf/github/persistence/src/main/java/org/brokenlance/persistence/mongo/MongoPersistenceManager.java
+/home/lonewolf/github/persistence/src/main/java/org/brokenlance/persistence/PersistenceManager.java
+/home/lonewolf/github/persistence/src/main/java/org/brokenlance/persistence/filesystem/FileSystemDetector.java
+/home/lonewolf/github/persistence/src/main/java/org/brokenlance/persistence/JsonTransformer.java
+/home/lonewolf/github/persistence/src/main/java/org/brokenlance/persistence/filesystem/DefaultPersistenceManager.java
+/home/lonewolf/github/persistence/src/main/java/org/brokenlance/persistence/mongo/MongoDetector.java

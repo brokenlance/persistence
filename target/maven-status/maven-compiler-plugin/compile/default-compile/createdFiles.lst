@@ -1,0 +1,7 @@
+org/brokenlance/persistence/PersistenceManager.class
+org/brokenlance/persistence/FileSystemDetector.class
+org/brokenlance/persistence/MongoDetector.class
+org/brokenlance/persistence/JsonTransformer.class
+org/brokenlance/persistence/DefaultPersistenceManager.class
+org/brokenlance/persistence/JsonTransformer$1.class
+org/brokenlance/persistence/MongoPersistenceManager.class
