@@ -45,11 +45,11 @@ The following diagram exhibts the class structure/design:
                                    ^               ^                      
                        implements  |               |  implements         
                                    |               |                    
-        +----------------------------------+   +-------------------------------+    
-        |                                  |   |                               |    
-        |  DefaultPersistenceManager< T >  |   | MongoPersistenceManager< T >  |...
-        |                                  |   |                               |   
-        +----------------------------------+   +-------------------------------+   
+        +----------------------------------+   +-------------------------------+   +-----+   
+        |                                  |   |                               |   |     |   
+        |  DefaultPersistenceManager< T >  |   | MongoPersistenceManager< T >  |...| etc.|   
+        |                                  |   |                               |   |     |   
+        +----------------------------------+   +-------------------------------+   +-----+   
                                                                                                                                         
                                                                                                                                         
                                                                                                                                         
