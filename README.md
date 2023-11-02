@@ -30,3 +30,43 @@ In this case, the "mongo" detector should match and create its datatype:
       PersistenceManager< Document > pm = pFactory.build( "file-system" );
       Document = pm.deserialize();
 ```
+
+### Class Hierarchy:
+                    +--------------------------------+                                                                           
+                    |                                |                                                                           
+                    |    PersistenceManager< T >     |                                                                           
+                    |--------------------------------|                                                                           
+                    | + serialize( T )               |                                                                           
+                    | + T: deserialize()             |                                                                           
+                    |                                |                                                                           
+                    +--------------------------------+                                                                           
+                            ^               ^                                                                                    
+                implements  |               |  implements                                                                                    
+                            |               |                                                                                    
++----------------------------------+   +-------------------------------+          +------+                                     
+|                                  |   |                               |          |      |                                     
+|  DefaultPersistenceManager< T >  |   | MongoPersistenceManager< T >  |   ....   | etc. |                                     
+|                                  |   |                               |          |      |                                     
++----------------------------------+   +-------------------------------+          +------+                                     
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                                 
