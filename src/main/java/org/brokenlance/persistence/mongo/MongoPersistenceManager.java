@@ -34,8 +34,8 @@ public class MongoPersistenceManager< T > implements PersistenceManager< T >
    {
       String creds = System.getProperty( "mongo.creds",      "mongoadmin:secret" );
       String host  = System.getProperty( "mongo.hostport",   "localhost:27017"   );
-      String db    = System.getProperty( "mongo.database",   "mygrocerylist"     );
-      String coll  = System.getProperty( "mongo.collection", "applicants"        );
+      String db    = System.getProperty( "mongo.database",   "repository"        );
+      String coll  = System.getProperty( "mongo.collection", "systemundertest"   );
       String url   = "mongodb://" + creds + "@" + host;
 
       log.debug( "Connection URL: {}", url );
