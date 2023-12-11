@@ -27,4 +27,16 @@ public interface PersistenceManager< T >
     * @return T -- type that will be returned from the persistence layer.
     */
    public T deserialize();
+
+   /**
+    * @param T -- type that will be persisted as a JSON value.
+    * @param String -- the key under which the data will be associated.
+    */
+   public void serialize( T entity, String key );
+
+   /**
+    * @return T -- type that will be returned from the persistence layer.
+    * @param String -- the key under which the data is associated.
+    */
+   public T deserialize( String key );
 }

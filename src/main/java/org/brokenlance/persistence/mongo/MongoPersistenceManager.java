@@ -26,6 +26,7 @@ public class MongoPersistenceManager< T > implements PersistenceManager< T >
    private static final String STORE = "store";
    private static final String NAME  = "name";
    private static final String DATA  = "data";
+   private              String name  = null;
 
    /**
     * This will be used by both serialize and deserialize.
@@ -68,6 +69,24 @@ public class MongoPersistenceManager< T > implements PersistenceManager< T >
    @Override
    public void serialize( T entity )
    {
+      serialize( entity, STORE );
+   }
+
+   /**
+    * @return T -- type that will be returned from the persistence layer.
+    */
+   @Override
+   public T deserialize()
+   {
+      return deserialize( STORE );
+   }
+
+   /**
+    * @param T -- type that will be persisted as a JSON value.
+    */
+   @Override
+   public void serialize( T entity, String key )
+   {
       log.debug( "Will serialize entity to mongo: {}", entity );
 
       MongoCollection< Document > collection = getMongoCollection();
@@ -83,8 +102,8 @@ public class MongoPersistenceManager< T > implements PersistenceManager< T >
       Document             update      = new Document();
       JsonTransformer< T > transformer = new JsonTransformer<>();
 
-      query.put( NAME, STORE );
-      document.put( NAME, STORE );
+      query.put( NAME, key );
+      document.put( NAME, key );
       document.put( DATA, transformer.serialize( entity ) );
       update.put( "$set", document );
 
@@ -98,7 +117,7 @@ public class MongoPersistenceManager< T > implements PersistenceManager< T >
     * @return T -- type that will be returned from the persistence layer.
     */
    @Override
-   public T deserialize()
+   public T deserialize( String key )
    {
       log.debug( "Will deserialize the data from mongo." );
 
@@ -113,7 +132,7 @@ public class MongoPersistenceManager< T > implements PersistenceManager< T >
       Document             query       = new Document();
       JsonTransformer< T > transformer = new JsonTransformer<>();
 
-      query.put( NAME, STORE );
+      query.put( NAME, key );
 
       Document result = collection.find( query ).first();
 

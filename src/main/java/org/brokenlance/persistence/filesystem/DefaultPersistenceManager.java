@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DefaultPersistenceManager< T > implements PersistenceManager< T >
 {
-   private static final String filename = "persistence.json";
+   private static final String filename = ".json";
 
    /**
     * @param T -- type that will be persisted as a JSON value.
@@ -30,12 +30,31 @@ public class DefaultPersistenceManager< T > implements PersistenceManager< T >
    @Override
    public void serialize( T entity )
    {
+      serialize( entity, "persistence" );
+   }
+
+   /**
+    * @return T -- type that will be returned from the persistence layer.
+    */
+   @Override
+   public T deserialize()
+   {
+      return deserialize( "persistence" );
+   }
+
+   /**
+    * @param T -- type that will be persisted as a JSON value.
+    * @param String -- the key under which the data will be associated.
+    */
+   @Override
+   public void serialize( T entity, String key )
+   {
       log.info( "Will serialize entity: {}", entity );
 
       try
       {
          JsonTransformer< T > transformer = new JsonTransformer<>();
-         Files.write( Path.of( filename ), transformer.serialize( entity ).getBytes(), CREATE, WRITE );
+         Files.write( Path.of( key + filename ), transformer.serialize( entity ).getBytes(), CREATE, WRITE );
       } 
       catch( IOException e ) 
       {
@@ -45,9 +64,10 @@ public class DefaultPersistenceManager< T > implements PersistenceManager< T >
 
    /**
     * @return T -- type that will be returned from the persistence layer.
+    * @param String -- the key under which the data is associated.
     */
    @Override
-   public T deserialize()
+   public T deserialize( String key )
    {
       T obj = null;
 
@@ -56,7 +76,7 @@ public class DefaultPersistenceManager< T > implements PersistenceManager< T >
       try
       {
          JsonTransformer< T > transformer = new JsonTransformer<>();
-         obj = transformer.deserialize( Files.lines( Path.of( filename ) ).collect( joining() ) );
+         obj = transformer.deserialize( Files.lines( Path.of( key + filename ) ).collect( joining() ) );
       } 
       catch( IOException e ) 
       {
